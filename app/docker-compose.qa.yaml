@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  api:
+    image: ${QA_CONTAINER_IMAGE_ID}
+    container_name: ${QA_CONTAINER_NAME}
+    build:
+      args:
+        ARG_NODE_ENV : ${QA_NODE_ENV}
+        ARG_PORT_EXPOSE: ${QA_PORT_EXPOSE}
+        ARG_PORT_CONTAINER: ${QA_PORT_CONTAINER}
+        ARG_PORT_HOST: ${QA_PORT_HOST}
+        ARG_PORT_DEBUG_CONTAINER: ${QA_PORT_DEBUG_CONTAINER}
+        ARG_PORT_DEBUG_HOST: ${QA_PORT_DEBUG_HOST}
+        ARG_WORKING_DIR: ${QA_WORKING_DIR}
+        ARG_CONTAINER_NAME: ${QA_CONTAINER_NAME}
+        ARG_CONTAINER_IMAGE_ID: ${QA_CONTAINER_IMAGE_ID}
+        ARG_VOLUME_HOST: ${QA_VOLUME_HOST}
+        ARG_VOLUME_CONTAINER: ${QA_VOLUME_CONTAINER}
+        ARG_SENTRY: ${QA_SENTRY}
+        ARG_TOKEN_AUDIENCE: ${QA_TOKEN_AUDIENCE}
+        ARG_TOKEN_SUBJECT: ${QA_TOKEN_SUBJECT}
+        ARG_TOKEN_ISSUER: ${QA_TOKEN_ISSUER}
+        ARG_TOKEN_TTL: ${QA_TOKEN_TTL}
+        ARG_TOKEN_SECRET: ${QA_TOKEN_SECRET}
+      context: ./
+
+    volumes:
+      - ${QA_VOLUME_HOST}:${QA_VOLUME_CONTAINER}
+    expose:
+      - ${QA_PORT_EXPOSE}
+    ports:
+      - "${QA_HOST}:${QA_PORT_CONTAINER}:${QA_PORT_HOST}"
+      - "${QA_HOST}:${QA_PORT_DEBUG_CONTAINER}:${QA_PORT_DEBUG_HOST}"
+    working_dir: ${QA_WORKING_DIR}
+    entrypoint: npm run qa
+

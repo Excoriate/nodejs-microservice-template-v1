@@ -1,0 +1,45 @@
+{
+  "name": "ideaup_microservice_catalinarpa_jira_connector",
+  "version": "0.0.1",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.10",
+    "nyc": "^13.3.0",
+    "chai-http": "^4.2.1"
+  },
+  "scripts": {
+    "dev": "nodemon --legacy-watch server.js",
+    "qa": "server nodejs",
+    "uat": "server nodejs",
+    "test": "./node_modules/mocha/bin/mocha tests/*tests.js --reporter spec",
+    "local-dev": "python config/scripts/docker/docker-runner.py d",
+    "local-devx": "python config/scripts/docker/docker-runner.py dx",
+    "local-qa": "python config/scripts/docker/docker-runner.py q",
+    "local-qax": "python config/scripts/docker/docker-runner.py qx",
+    "local-uat": "python config/scripts/docker/docker-runner.py u",
+    "local-uatx": "python config/scripts/docker/docker-runner.py ux",
+    "clean": "python config/scripts/docker/docker-container-manager.py x",
+    "docker": "python config/scripts/docker/docker-container-manager.py v"
+  },
+  "dependencies": {
+    "@google-cloud/datastore": "^3.1.0",
+    "axios": "^0.18.0",
+    "body-parser": "latest",
+    "boom": "^7.3.0",
+    "express": "latest",
+    "file-system": "^2.2.2",
+    "find": "^0.3.0",
+    "format-currency": "^1.0.0",
+    "fs": "0.0.1-security",
+    "gstore-node": "^5.0.1",
+    "js-yaml": "^3.12.2",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "raven": "^2.4.0"
+  }
+}

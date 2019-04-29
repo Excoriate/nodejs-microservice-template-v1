@@ -1,0 +1,9 @@
+{
+  "api_information":
+  {
+    "Company": "IdeaUP SPA.",
+    "name": "MicroService that connect to Jira Service Desk API.",
+    "version": "v.1.0.0",
+    "author": "Alex Torres"
+  }
+}

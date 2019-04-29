@@ -1,0 +1,9 @@
+{
+  "api_configuration":{
+    "port": "By Environment variable",
+    "container": "docker",
+    "deployment": "kubernetes",
+    "cloud:": "Google Cloud Platform",
+    "Development-orchestator": "Skaffold"
+  }
+}
